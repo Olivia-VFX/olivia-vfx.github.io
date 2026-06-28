@@ -8,6 +8,10 @@
   --border: #E7E2DE;
 } 
 
+.hero {
+  text-align: center;
+}
+
 h1, h2, h3 {
   align-items: center;
   font-size: 56px;
