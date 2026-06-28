@@ -10,31 +10,61 @@
 
 .hero {
   text-align: center;
+  padding:100px 20px 70px;
+  max-width:900px;
+  margin:auto;
 }
 
-h1, h2, h3 {
-  align-items: center;
-  font-size: 56px;
-  color: var(--text);
+h1 {
+    font-size: 60px;
+    margin-bottom: 0;
+    font-family:"Space Grotesk",sans-serif;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--text-light);
+    margin-top: 16px;
+    font-family:"Space Grotesk",sans-serif;
+}
+
+h3 {
+    font-size: 18px;
+    color: var(--pink);
+    font-weight: normal;
+    font-family:"Space Grotesk",sans-serif;
+}
+
+.divider {
+    width: 120px;
+    border: none;
+    border-top: 2px solid var(--pink);
+    margin: 30px auto;
 }
   
 p {
   color: var(--text-light);
-  font-size: 18px
+  font-size: 18px;
   line-height: 1.6;
 }
 
 body {
   background-color: var(--background);
   color: var(--text);
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
 }
 
 .cards {
-  display: flex;
-  gap: 24px;
+ display:flex;
+ flex-wrap:wrap;
+ justify-content:center;
+ gap:30px;
+ max-width:1200px;
+ margin:auto;
+ padding:40px;
 }
 
 .card {
@@ -42,6 +72,24 @@ body {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 24px;
-  flex: 1;
+  width: 300px;
+  transition: 0.25s;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
 }
 
+.card a {
+ color:var(--pink);
+ font-weight:bold;
+ text-decoration:none;
+}
+
+.card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.card a:hover {
+  color: var(--forest);
+}
