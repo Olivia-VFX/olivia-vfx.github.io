@@ -1,47 +1,155 @@
+/* =====================
+   COLOURS
+========================*/
+
 :root {
   --pink: #D9A5B3;
   --sage: #A8C3A1;
+  
   --background: #FAF8F6;
   --surface: #FFFFFF;
+  
   --text: #2F2F2F;
   --text-light: #666666;
+  
   --border: #E7E2DE;
 } 
+
+/* ==================
+   GLOBAL
+=====================*/
 
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+  
+  background-color: var(--background);
+  
+  color: var(--text);
+  
+  font-family: "Inter", sans-serif;
+ 
+  letter-spacing: .2px;
+}
+
+/* =======================
+  TYPOGRAPHY
+========================= */
+
+h1, h2, h3 {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+p {
+  color: var(--text-light);
+  
+  font-size: 18px;
+  
+  line-height: 1.8;
+  
+  max-width: 700px;
+  
+  margin: 0 auto;
+}
+
+a {
+  color: var(--pink);
+  
+  text-decoration: none;
+  
+  transition: .25s;
+}
+
+a:hover {
+  color: var(--sage);
+}
+
+/* ========================
+     LAYOUT
+========================== */
+
+.page {
+  max-width: 900px;
+  
+  margin: 0 auto;
+  
+  padding: 0 24px 80px;
+}
+
+.container {
+  max-width: 900px;
+  
+  margin: auto;
+  
+  padding: 0 24px;
+}
+
+section {
+  background: white;
+  
+  padding: 35px;
+  
+  margin: 30px 0;
+  
+  border-radius: 18px;
+  
+  border: 1px solid var(--border);
+}
+
+/* ========================
+    NAVIGATION
+========================= */
+
 .navbar{
   background: #C88A9B;
+  
   display: flex;
+  
   justify-content: space-between;
+  
   align-items: center;
+  
   padding: 22px 50px;
+  
   position: sticky;
+  
   top: 0;
+  
   z-index: 1000;
 }
 
 .logo{
   color: white;
+  
   font-size: 24px;
   font-weight: 600;
+  
   letter-spacing: 1px;
 }
 
 .nav-links{
   list-style: none;
+  
   display: flex;
+  
   gap: 30px;
+  
   margin: 0;
+  
   padding: 0;
 }
 
 .nav-links a{
   color: white;
+  
   text-decoration: none;
+  
   font-size: 17px;
+  
   transition: 0.3s;
 }
 
@@ -49,148 +157,193 @@ html {
   color: var(--background);
 }
 
+/* ========================
+   HEROES
+========================= */
+
 .hero {
   text-align: center;
+}
+
+.hero-home{
   padding:100px 20px 70px;
-  max-width:900px;
-  margin:auto;
 }
 
-.page-header {
-  text-align: center;
-  padding: 80px 0 50px;
+.hero-article{
+  padding: 70px 20px 40px;
 }
 
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.article h1 {
-    font-size: 52px;
-    margin-bottom: 0;
-    font-family:"Space Grotesk",sans-serif;
-}
-
-.article h2 {
-    font-size: 32px;
-    font-weight: 400;
-    color: var(--text-light);
-    margin-top: 16px;
-    font-family:"Space Grotesk",sans-serif;
+.hero-project {
+  padding: 60px 20px 30px;
 }
 
 .hero h1 {
     font-size: 64px;
+  
     margin-bottom: 0;
+  
     font-family:"Space Grotesk",sans-serif;
 }
 
 .hero h2 {
     font-size: 26px;
-    font-weight: 400;
-    color: var(--text-light);
-    margin-top: 16px;
-    font-family:"Space Grotesk",sans-serif;
-}
-
-.idea h2 {
-  font-size: 28px;
-  color: var(--text);
-  margin-top: 16px;
-  font-family:"Space Grotesk", sans-serif;
-}
-
-h3 {
-    font-size: 18px;
-    color: var(--pink);
-    font-weight: normal;
-    font-family:"Space Grotesk",sans-serif;
-}
-
-.divider {
-    width: 120px;
-    border: none;
-    border-top: 2px solid var(--pink);
-    margin: 30px auto;
-}
   
-p {
-  color: var(--text-light);
-  font-size: 18px;
-  line-height: 1.8;
-  max-width: 750px;
+    font-weight: 400;
+  
+    color: var(--text-light);
+  
+    margin-top: 16px;
+  
+    font-family:"Space Grotesk",sans-serif;
 }
 
-body {
-  background-color: var(--background);
-  color: var(--text);
-  font-family: "Inter", sans-serif;
-  margin: 0;
-  padding: 0;
-  letter-spacing: 0.2px;
-}
+/* =========================
+   ARTICLE
+========================= */
 
 .article {
   max-width: 800px;
+  
   margin: auto;
 }
 
+.article h1 {
+    font-size: 52px;
+  
+    margin-bottom: 0;
+  
+    font-family:"Space Grotesk",sans-serif;
+}
+
 .article h2 {
-  margin-top: 60px;
+    font-size: 32px;
+  
+    font-weight: 400;
+  
+    color: var(--text-light);
+  
+    margin-top: 60px;
+  
+    font-family:"Space Grotesk",sans-serif;
 }
 
 .article img {
   width: 100%;
+  
   border-radius: 12px;
 }
 
-a {
+/* ======================
+    IDEAS
+======================== */
+
+.ideas {
+  max-width: 900px;
+  
+  margin: auto;
+  
+  padding: 60px 20px;
+}
+
+.idea a{
   color: var(--pink);
+  
   text-decoration: none;
-  transition: .25s;
+  
+  font-weight: bold;
 }
 
-a:hover {
-  colr: var(--sage);
+.idea a:hover {
+  text-decoration: underline;
+}
+.idea{
+  padding: 40px 0;
+  
+  border-bottom: 1px solid var(--border);
 }
 
-img {
-  max-width: 100%;
-  border-radius: 12px;
+.idea h2 {
+  font-size: 28px;
+  
+  color: var(--text);
+  
+  margin-top: 16px;
+  
+  font-family:"Space Grotesk", sans-serif;
 }
+
+.status {
+  display: inline-block;
+  
+  background: var(--sage);
+  
+  color: white;
+  
+  padding: 6px 14px;
+  
+  border-radius: 20px;
+  
+  font-size: 14px;
+  
+  margin-bottom: 20px;
+}
+
+.meta {
+  display: flex;
+  
+  justify-content: center;
+  
+  gap: 16px;
+  
+  margin-bottom: 50px;
+}
+
+/* ======================
+    CARDS
+======================= */
 
 .cards {
  display:flex;
+  
  flex-wrap:wrap;
+  
  justify-content:center;
+  
  gap:30px;
+  
  max-width:1200px;
+  
  margin:auto;
+  
  padding:40px;
 }
 
 .card {
   background: var(--surface);
+  
   border: 1px solid var(--border);
   border-radius: 18px;
+  
   padding: 24px;
+  
   width: 300px;
+  
   transition: 0.25s;
+  
   display:flex;
   flex-direction:column;
+  
   justify-content:space-between;
 }
 
 .card a {
- color:var(--pink);
  font-weight:bold;
  text-decoration:none;
 }
 
 .card:hover {
   transform:translateY(-6px);
+  
   box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
@@ -198,61 +351,64 @@ img {
   color: var(--sage);
 }
 
-.ideas {
-  max-width: 900px;
-  margin: auto;
-  padding: 60px 20px;
-}
-
-.idea{
-  padding: 40px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.idea h2{
-  margin-bottom: 10px;
-  color: var(--text);
-}
-
-.status {
-  display: inline-block;
-  background : var(--sage);
-  color: white;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 14px;
-  margin-bottom: 20px;
-}
-
-.idea a{
-  color: var(--pink);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.idea a:hover {
-  text-decoration: underline;
-}
+/* ==================
+    BUTTONS
+================== */
 
 .back-button {
   display: inline-block;
-  margin-buttom: 40px;
+  
+  margin-bottom: 40px;
+  
   padding: 10px 18px;
+  
   background: var(--surface);
   color: var(--text);
   border: 1px solid var(--border);
+  
   border-radius: 10px;
+  
   text-decoration: none;
+  
   font-weight: 600;
+  
   transition: 0.3s ease;
 }
 
 .back-button:hover {
   background: var(--pink);
   color: white;
+  
   transform: translateX(-3px);
 }
 
-section {
-  margin: 70px 0;
+/* ===================
+    DIVIDERS
+==================== */
+
+.divider {
+    width: 120px;
+  
+    border: none;
+    border-top: 2px solid var(--pink);
+  
+    margin: 30px auto;
+}
+
+/* =================
+   IMAGES
+================== */
+img {
+  max-width: 100%;
+  
+  border-radius: 12px;
+}
+
+/* ===================
+     LISTS
+=================== */
+
+ul {
+  color: var(--text-light);
+  line-height: 1.9;
 }
