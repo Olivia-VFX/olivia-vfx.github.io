@@ -8,12 +8,16 @@
   --border: #E7E2DE;
 } 
 
+html {
+  scroll-behavior: smooth;
+}
+
 .navbar{
   background: #C88A9B;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 50px;
+  padding: 22px 50px;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -22,7 +26,7 @@
 .logo{
   color: white;
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 600;
   letter-spacing: 1px;
 }
 
@@ -52,18 +56,50 @@
   margin:auto;
 }
 
-h1 {
-    font-size: 60px;
+.page-header {
+  text-align: center;
+  padding: 80px 0 50px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.article h1 {
+    font-size: 52px;
     margin-bottom: 0;
     font-family:"Space Grotesk",sans-serif;
 }
 
-h2 {
-    font-size: 24px;
+.article h2 {
+    font-size: 32px;
     font-weight: 400;
     color: var(--text-light);
     margin-top: 16px;
     font-family:"Space Grotesk",sans-serif;
+}
+
+.hero h1 {
+    font-size: 64px;
+    margin-bottom: 0;
+    font-family:"Space Grotesk",sans-serif;
+}
+
+.hero h2 {
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--text-light);
+    margin-top: 16px;
+    font-family:"Space Grotesk",sans-serif;
+}
+
+.idea h2 {
+  font-size: 28px;
+  color: var(--text);
+  margin-top: 16px;
+  font-family:"Space Grotesk", sans-serif;
 }
 
 h3 {
@@ -83,7 +119,8 @@ h3 {
 p {
   color: var(--text-light);
   font-size: 18px;
-  line-height: 1.6;
+  line-height: 1.8;
+  max-width: 750px;
 }
 
 body {
@@ -92,6 +129,36 @@ body {
   font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
+  letter-spacing: 0.2px;
+}
+
+.article {
+  max-width: 800px;
+  margin: auto;
+}
+
+.article h2 {
+  margin-top: 60px;
+}
+
+.article img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+a {
+  color: var(--pink);
+  text-decoration: none;
+  transition: .25s;
+}
+
+a:hover {
+  colr: var(--sage);
+}
+
+img {
+  max-width: 100%;
+  border-radius: 12px;
 }
 
 .cards {
@@ -107,7 +174,7 @@ body {
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: 18px;
   padding: 24px;
   width: 300px;
   transition: 0.25s;
@@ -128,7 +195,7 @@ body {
 }
 
 .card a:hover {
-  color: var(--forest);
+  color: var(--sage);
 }
 
 .ideas {
@@ -158,7 +225,7 @@ body {
 }
 
 .idea a{
-  color: var(--pink)
+  color: var(--pink);
   text-decoration: none;
   font-weight: bold;
 }
@@ -169,14 +236,14 @@ body {
 
 .back-button {
   display: inline-block;
-  margin-button: 40px;
+  margin-buttom: 40px;
   padding: 10px 18px;
   background: var(--surface);
   color: var(--text);
   border: 1px solid var(--border);
   border-radius: 10px;
   text-decoration: none;
-  font-weght: 600;
+  font-weight: 600;
   transition: 0.3s ease;
 }
 
@@ -184,4 +251,8 @@ body {
   background: var(--pink);
   color: white;
   transform: translateX(-3px);
+}
+
+section {
+  margin: 70px 0;
 }
