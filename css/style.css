@@ -8,6 +8,43 @@
   --border: #E7E2DE;
 } 
 
+.navbar{
+  background: #C88A9B;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 50px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo{
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.nav-links{
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a{
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: var(--background);
+}
+
 .hero {
   text-align: center;
   padding:100px 20px 70px;
