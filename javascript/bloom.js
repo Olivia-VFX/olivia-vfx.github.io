@@ -29,6 +29,10 @@ list.addEventListener('click', function(ev) {
     }
 
     updatePlant();
+
+    for (let i = 0; i <5; i++) {
+      createSparkle();
+    }
   }
 }, false);
 
@@ -48,6 +52,25 @@ function updatePlant() {
     plant.textContent = "🌳";
   }
 }
+
+function createSparkle() {
+  const sparkle = document.createElement("div");
+  sparkle.className = "sparkle";
+  sparkle.textContent = "✨";
+
+  const randomX = Math.random() * 300;
+  const randomY = Math.random() * 200;
+  sparkle.style.left = randomX + "px";
+  sparkle.style.bottom = randomY + "px"
+
+  document.getElementById("sparkles").appendChild(sparkle);
+
+  setTimeout(function () {
+    sparkle.remove();
+  }, 1200);
+
+}
+
 
 function newElement() {
   var li = document.createElement("li");
