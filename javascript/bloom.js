@@ -1,4 +1,4 @@
-var myNodelist = document.getElementsByTagName("Li");
+var myNodelist = document.getElementsByTagName("li");
 for (var i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
@@ -17,7 +17,7 @@ for (var i = 0; i < close.length; i++) {
 
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
+  if (ev.target.tagName === 'li') {
     ev.target.classList.toggle('checked');
   }
 }, false);
@@ -25,12 +25,13 @@ list.addEventListener('click', function(ev) {
 function newElement() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("myInput").value;
-  var t = document.createTextNoder(inputValue);
+  var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
     alert("Please enter something");
   } else {
     document.getElementById("myUL").appendChild(li);
+    document.getElementByID("myInput").value = "";
   }
 
 var span = document.createElement("SPAN");
