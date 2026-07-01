@@ -113,6 +113,16 @@ body {
    background: #9dd49d;
 }
 
+#weather {
+   position: absolute;
+   top: 30px;
+   left: 50%;
+
+   transform: translateX(-50%);
+
+   font-size: 60px;
+}
+
 .sparkle {
    position: absolute;
    font-size: 24px;
