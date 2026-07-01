@@ -355,6 +355,47 @@ section {
   color: var(--sage);
 }
 
+/*==================
+    PROJECTS
+==================*/
+
+.project-card {
+   background: var(--surface);
+   border: 1px solid var(--border);
+   border-radius: 16px;
+   padding: 24px;
+   transition: 0.3s ease;
+}
+
+.project-card:hover {
+   transform: translateY(-6px);
+   box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+   border-color: var(--pink);
+}
+
+.project-status {
+   font-size: 12px;
+   color: var(--text-light);
+   margin-bottom: 8px;
+}
+
+.tags span {
+   font-size: 12px;
+   background: #f3f0ee;
+   padding: 4px 8px;
+   border-radius: 999px;
+   margin-right: 6px;
+   color: var(--text-light);
+}
+
+.projects-grid {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+   gap: 24px;
+   max-width: 1100px;
+   margin: auto;
+}
+
 /* ==================
     BUTTONS
 ================== */
