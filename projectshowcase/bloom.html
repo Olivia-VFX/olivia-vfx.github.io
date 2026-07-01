@@ -6,14 +6,9 @@
   </head>
 
   <body>
-    
-    <!-- Header -->
 
-    <div id="myDIV" class="header">
-      <h2>Bloom To Do</h2>
-      <input type="text" id="myInput" placeholder="Title...">
-      <span onclick="newElement()" class="addBtn">Add</span>
-    </div>
+    <h1>🌸 Bloom 🌸</h1>
+  
 
     <!--Main content -->
 
@@ -21,6 +16,12 @@
 
       <!--To-do list -->
       <div class="todo-panel">
+
+        <div class="task-input">
+          <input id="myInput" placeholder="Add a task...">
+          <button class="addBtn" onclick="newElement()">Add</button>
+        </div>
+        
         <ul id="myUL">
           <li>Item 1</li>
           <li class="checked">Item 2</li>
