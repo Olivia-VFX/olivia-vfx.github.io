@@ -97,11 +97,12 @@ body {
 }
 
 #plant {
-   font-size: 120px;
+   font-size: 100px;
    position: absolute;
-   bottom: 60px;
+   bottom: 40px;
    left: 50%;
    transform: translateX(-50%);
+   z-index: 1;
 }
 
 #ground {
@@ -115,12 +116,13 @@ body {
 
 #weather {
    position: absolute;
-   top: 30px;
+   top: 10px;
    left: 50%;
 
    transform: translateX(-50%);
 
    font-size: 60px;
+   z-index: 3;
 }
 
 .sparkle {
@@ -129,6 +131,7 @@ body {
    pointer-events: none;
 
    animation: sparkleFloat 1.2s ease-out forwards;
+   z-index: 2;
 }
 
 @keyframes sparkleFloat {
