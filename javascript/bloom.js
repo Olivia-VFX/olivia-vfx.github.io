@@ -29,6 +29,7 @@ list.addEventListener('click', function(ev) {
     }
 
     updatePlant();
+    updateWeather();
 
     for (let i = 0; i <5; i++) {
       createSparkle();
@@ -71,6 +72,21 @@ function createSparkle() {
 
 }
 
+function updateWeather() {
+  var weather = document.getElementById("weather");
+   if (completedTasks <= 0) {
+    weather.textContent = "🌧️";
+  }
+  else if (completedTasks <= 2) {
+    weather.textContent = "🌤️";
+  }
+  else if (completedTasks <= 4) {
+    weather.textContent = "☀️";
+  }
+  else {
+    weather.textContent = "🌈";
+  }
+}
 
 function newElement() {
   var li = document.createElement("li");
