@@ -87,3 +87,13 @@ input {
 .addBtn:hover {
   background-color: #bbb;
 }
+
+#garden {
+  text-align: center;
+  margin: 20px;
+}
+
+#plant {
+  font-size: 80px;
+  transition: transform 0.3s ease;
+}
