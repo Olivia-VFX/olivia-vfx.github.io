@@ -1,3 +1,5 @@
+let completedTasks = 0;
+
 var myNodelist = document.getElementsByTagName("li");
 for (var i = 0; i < myNodelist.length; i++) {
   var span = document.createElement("SPAN");
@@ -19,8 +21,33 @@ var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
   if (ev.target.tagName === 'li') {
     ev.target.classList.toggle('checked');
+
+    if (ev.target.classList.contains('checked')) {
+      completedTasks++;
+    } else {
+      completedTasks--;
+    }
+
+    updatePlant();
   }
 }, false);
+
+function updatePlant() {
+  var plant = document.getElementById("plant");
+
+  if (completedTaks <= 0) {
+    plant.textContent = "🌰";
+  }
+  else if (completedTasks <= 2) {
+    plant.textContent = "🌱";
+  }
+  else if (completedTasks <= 4) {
+    plant.textContent = "🌿";
+  }
+  else {
+    plant.textContent = "🌳";
+  }
+}
 
 function newElement() {
   var li = document.createElement("li");
