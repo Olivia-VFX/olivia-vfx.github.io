@@ -6,6 +6,8 @@
   </head>
 
   <body>
+    
+    <!-- Header -->
 
     <div id="myDIV" class="header">
       <h2>Bloom To Do</h2>
@@ -13,17 +15,31 @@
       <span onclick="newElement()" class="addBtn">Add</span>
     </div>
 
+    <!--Main content -->
+
+    <div class="container">
+
+      <!--To-do list -->
+      <div class="todo-panel">
+        <ul id="myUL">
+          <li>Item 1</li>
+          <li class="checked">Item 2</li>
+          <li>Item 3</li>
+        </ul>
+      </div>
+
+      <!--Garden-->
+
+  <div class="garden-panel">
+
     <div id="garden">
       <div id="plant">🌰</div>
     </div>
-    
 
-    <ul id="myUL">
-      <li>Item 1</li>
-      <li class="checked">Item 2</li>
-      <li>Item 3</li>
-    </ul>
+    </div>
+  </div>
 
+<!-- JavaScript-->
     <script src="../../javascript/bloom.js"></script>
   </body>
 </html>
