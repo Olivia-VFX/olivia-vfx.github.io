@@ -19,9 +19,9 @@ for (var i = 0; i < close.length; i++) {
 
 var list = document.querySelector('ul');
 list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'li') {
+  if (ev.target.tagName === 'LI') {
     ev.target.classList.toggle('checked');
-
+    
     if (ev.target.classList.contains('checked')) {
       completedTasks++;
     } else {
@@ -35,7 +35,7 @@ list.addEventListener('click', function(ev) {
 function updatePlant() {
   var plant = document.getElementById("plant");
 
-  if (completedTaks <= 0) {
+  if (completedTasks <= 0) {
     plant.textContent = "🌰";
   }
   else if (completedTasks <= 2) {
@@ -58,7 +58,7 @@ function newElement() {
     alert("Please enter something");
   } else {
     document.getElementById("myUL").appendChild(li);
-    document.getElementByID("myInput").value = "";
+    document.getElementById("myInput").value = "";
   }
 
 var span = document.createElement("SPAN");
@@ -71,4 +71,4 @@ span.onclick = function () {
   this.parentElement.style.display = "none";
 } ;
 
-  li.appendChild(span);
+}
