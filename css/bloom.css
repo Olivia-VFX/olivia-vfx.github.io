@@ -156,7 +156,7 @@ body {
    top: 20px;
    opacity: 0.8;
 
-   animation: drift 20s linear infinite, floatPulse 4s ease-in-out infinite;
+   animation: drift 20s linear infinite;
 }
 
 @keyframes drift {
