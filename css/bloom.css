@@ -155,17 +155,18 @@ body {
    font-size: 40px;
    top: 20px;
    opacity: 0.8;
+   left: -100px;
 
    animation: drift 20s linear infinite;
 }
 
 @keyframes drift {
-   0% {
-      transform: translateX(-100px);
+   from {
+      left: -100px;
    }
 
-   100% {
-      transform: translateX(120vw);
+   to {
+      left: 100%;
    }
 }
 
