@@ -1,0 +1,41 @@
+#sky {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(to bottom, #ffe6f0, #e6f7ff);
+}
+
+#timerBox {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+
+  padding: 20px 30px;
+  border-radius: 20px;
+
+  text-align: center;
+
+  transition: transfrom 0.3s ease;
+}
+
+#time {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+#controls button {
+  margin: 5px;
+  padding: 10px 15px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: #a8e6cf;
+  cursor: pointer;
+}
