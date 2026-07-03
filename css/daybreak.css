@@ -1,10 +1,51 @@
 #sky {
-  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  position: relative;
-  overflow: hidden;
+  height: 100%;
+  transition: background 2s ease-in-out;
+}
 
-  background: linear-gradient(to bottom, #ffe6f0, #e6f7ff);
+.sunrise {
+  background: linear-gradient(to top, #ffd1dc, #ffe6a7);
+}
+
+.morning {
+  background: linear-gradient(to top, #ffefba, #ffffff);
+}
+
+.midday {
+  background: linear-gradient(to top, #87ceeb, #ffffff);
+}
+
+.evening {
+  background: linear-gradient(to top, #ffb347, #ffcc33);
+}
+
+.sunset {
+  background: linear-gradient(to top, #ff7e5f, #feb47b);
+}
+
+.night {
+  background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
+}
+
+.dawn {
+  background: linear-gradient(to top, #1b2735, #090a0f);
+}
+
+.sunset-to-night {
+  animation: sunsetToNight 3s ease-in-out forwards;
+}
+
+@keyframes sunsetToNight {
+  0% {
+    background: linear-gradient(to top, #ff7e5f, #feb47b);
+  }
+  100% {
+    background: linear-gradient(to top, #0f2027, #203a43, #2c5364);
+  }
 }
 
 #timerBox {
