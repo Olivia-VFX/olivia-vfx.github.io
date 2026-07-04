@@ -113,17 +113,17 @@ function returnToReady() {
 
 setInterval(function () {
   if (isRunning === true) {    
-    time = time - 0.25;
+    time = time - 1;
     refreshUI();
     checkTimerFinished();
   }  
-}, 250);
+}, 1000);
 
 function updateDisplay() {
   let totalSeconds = Math.ceil(time);
   
-  let minutes = Math.floor(time / 60);
-  let seconds = time % 60;
+  let minutes = Math.floor(totalSeconds / 60);
+  let seconds = totalSeconds % 60;
 
   if (seconds < 10) {
     seconds = "0" + seconds;
@@ -141,6 +141,8 @@ function checkTimerFinished() {
       }
   }
 }
+
+
 
 
 function updateSun() {
@@ -192,9 +194,9 @@ function mixColor(c1, c2, t) {
 
 function updateSky() {
   let rawP = getProgress();
-
-  let p = rawP * 0.15 + (window.lastP || 0) * 0.85;
-  window.lastP = p;
+  
+  time = Math.max(0, time - 0.25);
+  let p = Math.min(1, Math.max(0, rawP));
   
   let top, bottom;
 
