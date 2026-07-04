@@ -26,8 +26,26 @@ console.log("JS Loaded!");
 
 
 
+
+
 function pauseTimer() {
-  isRunning = false;
+  if (isRunning) {
+    isRunning = false;
+
+    if (appState === "focus") {
+      pauseButton.textContent = "Resume Session";
+    } else if (appState === "break") {
+      pauseButton.textContent = "Resume Break";
+    }
+  } else  {
+    isRunning = true;
+
+    if (appState === "focus") {
+      pauseButton.textContent = "Pause Session";
+    } else if (appState === "break") {
+      pauseButton.textContent = "Pause Break";
+    }
+  }
 }
 
 function resetTimer() {
@@ -63,7 +81,10 @@ function startBreak() {
   appState = "break";
   time = breakLength;
   isRunning = true;
+  
   refreshUI();
+
+  sky.classList.add("night-acive");
 }
 
 function finishBreak() {
@@ -78,21 +99,27 @@ function returnToReady() {
   appState = "ready";
   time = focusLength;
   isRunning = false;
+
+  sky.classList.remove("night-active");
+  
   refreshUI();
 }
 
 
 
+
+
 setInterval(function () {
-  if (isRunning === true) {
-    
-    time=time-1;
+  if (isRunning === true) {    
+    time = time - 0.25;
     refreshUI();
-  }
-  
-},1000);
+    checkTimerFinished();
+  }  
+}, 250);
 
 function updateDisplay() {
+  let totalSeconds = Math.ceil(time);
+  
   let minutes = Math.floor(time / 60);
   let seconds = time % 60;
 
@@ -105,9 +132,15 @@ function updateDisplay() {
 
 function checkTimerFinished() {
   if (time === 0) {
-    finishFocusSession();
+      if (appState === "focus") {
+        finishFocusSession();
+      } else if (appState === "break") {
+        finishBreak();
+      }
   }
 }
+
+
 
 
 
@@ -119,7 +152,12 @@ function refreshUI() {
 }
 
 function getProgress() {
-  return (focusLength - time) / focusLength;
+  if(appState === "focus") {
+     return (focusLength - time) / focusLength;
+  } 
+  if (appState === "break") {
+    return (breakLength - time) / breakLength;
+  }
 }
 
 function lerp(a, b, t) {
@@ -128,15 +166,18 @@ function lerp(a, b, t) {
 
 function mixColor(c1, c2, t) {
   return [
-    Math.round(lerp(c1[0], c2[0], t));
-    Math.round(lerp(c1[1], c2[1], t));
-    Math.round(lerp(c1[2], c2[2], t));
+    Math.round(lerp(c1[0], c2[0], t)),
+    Math.round(lerp(c1[1], c2[1], t)),
+    Math.round(lerp(c1[2], c2[2], t))
   ];
 }
 
 function updateSky() {
-  let p = getProgress();
+  let rawP = getProgress();
 
+  let p = rawP * 0.15 + (window.lastP || 0) * 0.85;
+  window.lastP = p;
+  
   let top, bottom;
 
   if (p < 0.5) {
@@ -156,6 +197,8 @@ function updateSky() {
     )
     `;
 }
+
+
 
     
 function updateMessage() {
@@ -188,7 +231,7 @@ function updateButtons() {
   else if (appState === "focus") {
     startButton.style.display = "none";
     
-    pauseButton.textContent = "Pause Session";
+    pauseButton.textContent = isRunning ? "Pause Session" : "Resume Session";
     pauseButton.style.display = "inline-block";
     
     resetButton.textContent = "Reset Session";
@@ -204,7 +247,7 @@ function updateButtons() {
   else if (appState === "break") {
     startButton.style.display = "none";
     
-    pauseButton.textContent = "Pause Break";
+    pauseButton.textContent = isRunning ? "Pause Break" : "Resume Break";
     pauseButton.style.display = "inline-block";
     
     resetButton.textContent = "Skip Break";
