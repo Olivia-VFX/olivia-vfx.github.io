@@ -4,13 +4,13 @@
   left: 0;
   width: 100%;
   height: 100%;
-  transition: background 2s ease-in-out;
+  transition: background 1.2s ease-in-out, filter 1.2s ease-in-out;
   pointer-events: none;
   z-index: -1;
 }
 
 .night-active {
-  filter: brightness(0.35) contrast(1.2);
+  filter: brightness(0.35) contrast(1.3);
 
 .header { 
   position: relative;
