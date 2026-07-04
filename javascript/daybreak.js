@@ -11,7 +11,9 @@ const message = document.getElementById("message");
 const startButton = document.getElementById("startButton");
 const pauseButton = document.getElementById("pauseButton");
 const resetButton = document.getElementById("resetButton");
+
 const sky = document.getElementById("sky");
+const sun = document.getElementById("sun");
 
 const sunriseTop = [255, 209, 220];
 const sunriseBottom = [255, 230, 167];
@@ -141,6 +143,21 @@ function checkTimerFinished() {
 }
 
 
+function updateSun() {
+  if (appState !== "focus") {
+    sun.style.opacity = 0;
+    return;
+  }
+
+  sun.style.opacity = 1;
+  let p = getProgress();
+  let x = lerp(10, 85, p);
+  let y = 80 - Math.sin(p * Math.PI) * 60;
+
+  sun.style.transform = `translate(${x}vw, ${y}vh)`;
+}
+
+
 
 
 
@@ -149,6 +166,7 @@ function refreshUI() {
   updateMessage();
   updateButtons();
   updateSky();
+  updateSun();
 }
 
 function getProgress() {
