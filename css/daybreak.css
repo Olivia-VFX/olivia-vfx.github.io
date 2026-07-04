@@ -9,6 +9,9 @@
   z-index: -1;
 }
 
+.night-active {
+  filter: brightness(0.35) contrast(1.2);
+
 .header { 
   position: relative;
   z-index: 10;
