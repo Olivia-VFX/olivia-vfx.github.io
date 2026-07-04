@@ -4,18 +4,16 @@ let breakLength = 300;
 
 let isRunning = false;
 let appState = "ready";
+let breakPhase = "night";
 
-const message = document.getByElementId("message");
-const startButton = document.getByElementId("startButton");
-const pauseButton = document.getByElementId("pauseButton");
-const resetButton = document.getByElementId("resetButton");
+const message = document.getElementById("message");
+const startButton = document.getElementById("startButton");
+const pauseButton = document.getElementById("pauseButton");
+const resetButton = document.getElementById("resetButton");
 const sky = document.getElementById("sky");
 
 
 
-function startTimer() {
-  isRunning = true;
-}
 
 function pauseTimer() {
   isRunning = false;
@@ -23,9 +21,9 @@ function pauseTimer() {
 
 function resetTimer() {
   isRunning = false;
-  time = 1500;
+  time = focusLength;
 
-  updateDisplay();
+  refreshUI();
 }
 
 
@@ -75,9 +73,7 @@ setInterval(function () {
   if (isRunning === true) {
     
     time=time-1;
-    updateDisplay();
-    updateSky();
-    checkTimerFinished();
+    refreshUI();
   }
   
 },1000);
@@ -136,11 +132,11 @@ function updateSky() {
     sky.className = "sunset-to-night";
   }
   else if (appState === "break") {
-    if (time % 2 === 0) {
-      sky.className = "night";
-    } else {
-      sky.className = "dawn";
-    }
+    if (time % 10 === 0) {
+      breakPhase = (breakPhase === "night") ? "dawn" : "night";
+    } 
+      sky.className = breakPhase;
+    
   }
 }
 
