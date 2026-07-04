@@ -21,6 +21,7 @@ function pauseTimer() {
 
 function resetTimer() {
   isRunning = false;
+  appState = "ready";
   time = focusLength;
 
   refreshUI();
