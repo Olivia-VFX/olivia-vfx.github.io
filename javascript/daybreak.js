@@ -2,6 +2,7 @@ let time = 0;
 let focusLength = 1500;
 let breakLength = 300;
 let progress = (focusLength - time) / focusLength;
+let nightTransition = false;
 
 let isRunning = false;
 let appState = "ready";
@@ -74,6 +75,8 @@ function finishFocusSession() {
   appState = "complete";
   isRunning = false;
   refreshUI();
+
+  startSunsetToNightTransition();
   setTimeout ( function() {
     startBreak();
   }, 3000);
@@ -85,8 +88,9 @@ function startBreak() {
   isRunning = true;
   
   refreshUI();
+  nightTransition = false;
 
-  sky.classList.add("night-acive");
+  sky.classList.add("night-active");
 }
 
 function finishBreak() {
@@ -159,6 +163,14 @@ function updateSun() {
   sun.style.transform = `translate(${x}vw, ${y}vh)`;
 }
 
+function startSunsetToNightTransition() {
+  nightTransition = true;
+
+  setTimeout(() => {
+    startBreak();
+  }, 1500);
+}
+
 
 
 
@@ -200,14 +212,19 @@ function updateSky() {
   
   let top, bottom;
 
-  if (p < 0.5) {
-    let t = p / 0.5;
-    top = mixColor(sunriseTop, middayTop, t);
-    bottom = mixColor(sunriseBottom, middayBottom, t);
+  if (nightTransition) {
+    top = sunsetBottom;
+    bottom = [15, 20, 40];
   } else {
-    let t = (p - 0.5) / 0.5;
-    top = mixColor(middayTop, sunsetTop, t);
-    bottom = mixColor(middayBottom, sunsetBottom, t);
+    if (p < 0.5) {
+      let t = p / 0.5;
+      top = mixColor(sunriseTop, middayTop, t);
+      bottom = mixColor(sunriseBottom, middayBottom, t);
+    } else {
+      let t = (p - 0.5) / 0.5;
+      top = mixColor(middayTop, sunsetTop, t);
+      bottom = mixColor(middayBottom, sunsetBottom, t);
+    }
   }
 
   sky.style.background = `
