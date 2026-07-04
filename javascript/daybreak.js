@@ -32,6 +32,8 @@ function resetTimer() {
 
 
 function startFocusSession() {
+  console.log("Start button pressed");
+  
   appState = "focus";
   time = focusLength;
   isRunning = true;
