@@ -12,6 +12,7 @@ const pauseButton = document.getElementById("pauseButton");
 const resetButton = document.getElementById("resetButton");
 const sky = document.getElementById("sky");
 
+console.log("JS Loaded!");
 
 
 
