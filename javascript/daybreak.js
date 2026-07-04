@@ -1,6 +1,7 @@
 let time = 0;
 let focusLength = 1500;
 let breakLength = 300;
+let progress = (focusLength - time) / focusLength;
 
 let isRunning = false;
 let appState = "ready";
@@ -11,6 +12,15 @@ const startButton = document.getElementById("startButton");
 const pauseButton = document.getElementById("pauseButton");
 const resetButton = document.getElementById("resetButton");
 const sky = document.getElementById("sky");
+
+const sunriseTop = [255, 209, 220];
+const sunriseBottom = [255, 230, 167];
+
+const middayTop = [135, 206, 235];
+const middayBottom = [255, 255, 255];
+
+const sunsetTop = [255, 126, 95];
+const sunsetBottom = [44, 83, 100];
 
 console.log("JS Loaded!");
 
@@ -108,40 +118,43 @@ function refreshUI() {
   updateSky();
 }
 
+function getProgress() {
+  return (focusLength - time) / focusLength;
+}
+
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+
+function mixColor(c1, c2, t) {
+  return [
+    Math.round(lerp(c1[0], c2[0], t));
+    Math.round(lerp(c1[1], c2[1], t));
+    Math.round(lerp(c1[2], c2[2], t));
+  ];
+}
+
 function updateSky() {
-  if (appState === "ready"){
-    sky.className = "sunrise";
-    }
-  else if (appState === "focus") {
-    if (time > 1200) {
-      sky.className = "sunrise";
-    }
-    else if (time > 900) {
-      sky.className = "morning";
-    }
-    else if (time > 600) {
-      sky.className = "midday";
-    }
-    else if (time > 300) {
-      sky.className = "evening";
-    }
-    else if (time > 0) {
-      sky.className = "sunset";
-    }
-    else {
-      sky.className = "night";
-    }
+  let p = getProgress();
+
+  let top, bottom;
+
+  if (p < 0.5) {
+    let t = p / 0.5;
+    top = mixColor(sunriseTop, middayTop, t);
+    bottom = mixColor(sunriseBottom, middayBottom, t);
+  } else {
+    let t = (p - 0.5) / 0.5;
+    top = mixColor(middayTop, sunsetTop, t);
+    bottom = mixColor(middayBottom, sunsetBottom, t);
   }
-  else if (appState === "complete") {
-    sky.className = "sunset-to-night";
-  }
-  else if (appState === "break") {
-    if (time % 10 === 0) {
-      breakPhase = (breakPhase === "night") ? "dawn" : "night";
-    } 
-      sky.className = breakPhase;
-    
-  }
+
+  sky.style.background = `
+    linear-gradient(to top,
+    rgb(${bottom[0]}, ${bottom[1]}, ${bottom[2]}),
+    rgb(${top[0]}, ${top[1]}, ${top[2]})
+    )
+    `;
 }
 
     
