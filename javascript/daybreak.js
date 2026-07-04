@@ -199,3 +199,6 @@ function updateButtons() {
   }
 }
 
+window.startFocusSession = startFocusSession;
+window.pauseTimer = pauseTimer;
+window.resetTimer = resetTimer;
