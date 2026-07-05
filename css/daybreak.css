@@ -26,7 +26,7 @@
   background: radial-gradient(circle, #ff7b00, #ffcc33);
   box-shadow: 0 0 40px rgba(255, 200, 50, 0.8);
 
-  opacity: 1;
+  opacity: 0;
 }
 
 #moon {
