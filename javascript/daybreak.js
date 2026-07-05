@@ -291,7 +291,6 @@ function mixColor(c1, c2, t) {
 function updateSky() {
   let rawP = getProgress();
   
-  time = Math.max(0, time - 0.25);
   let p = Math.min(1, Math.max(0, rawP));
   
   let top, bottom;
