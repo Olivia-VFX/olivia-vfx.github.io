@@ -34,6 +34,101 @@ console.log("JS Loaded!");
 
 
 
+const CITY_NS = "http://www.w3.org/2000/svg";
+const groundY = 220;
+
+// wider, further-back buildings — creates depth
+const backBuildingsData = [
+  { x: -10, width: 120, height: 90 },
+  { x: 100, width: 100, height: 120 },
+  { x: 190, width: 140, height: 80 },
+  { x: 320, width: 110, height: 130 },
+  { x: 420, width: 130, height: 95 },
+  { x: 540, width: 100, height: 140 },
+  { x: 630, width: 150, height: 85 },
+  { x: 770, width: 120, height: 125 },
+  { x: 880, width: 130, height: 100 },
+];
+
+// dense front row — spans the full width, varied heights
+const frontBuildingsData = [
+  { x: 0,   width: 50, height: 140 },
+  { x: 52,  width: 35, height: 90 },
+  { x: 89,  width: 60, height: 170, spire: true },
+  { x: 151, width: 40, height: 110 },
+  { x: 193, width: 70, height: 205, spire: true },
+  { x: 265, width: 45, height: 130 },
+  { x: 312, width: 55, height: 160 },
+  { x: 369, width: 35, height: 95 },
+  { x: 406, width: 65, height: 185 },
+  { x: 473, width: 40, height: 120 },
+  { x: 515, width: 80, height: 215, spire: true },
+  { x: 597, width: 50, height: 140 },
+  { x: 649, width: 60, height: 175 },
+  { x: 711, width: 45, height: 100 },
+  { x: 758, width: 70, height: 190 },
+  { x: 830, width: 55, height: 150 },
+  { x: 887, width: 40, height: 115 },
+  { x: 929, width: 65, height: 180 },
+];
+
+function buildCity() {
+  const backGroup = document.getElementById("backBuildings");
+  const frontGroup = document.getElementById("frontBuildings");
+
+  backBuildingsData.forEach(b => {
+    const rect = document.createElementNS(CITY_NS, "rect");
+    rect.setAttribute("x", b.x);
+    rect.setAttribute("y", groundY - b.height);
+    rect.setAttribute("width", b.width);
+    rect.setAttribute("height", b.height);
+    rect.setAttribute("class", "building-back");
+    backGroup.appendChild(rect);
+  });
+
+  frontBuildingsData.forEach(b => {
+    const y = groundY - b.height;
+
+    const rect = document.createElementNS(CITY_NS, "rect");
+    rect.setAttribute("x", b.x);
+    rect.setAttribute("y", y);
+    rect.setAttribute("width", b.width);
+    rect.setAttribute("height", b.height);
+    rect.setAttribute("class", "building-front");
+    frontGroup.appendChild(rect);
+
+    if (b.spire) {
+      const spire = document.createElementNS(CITY_NS, "rect");
+      spire.setAttribute("x", b.x + b.width / 2 - 2);
+      spire.setAttribute("y", y - 25);
+      spire.setAttribute("width", 4);
+      spire.setAttribute("height", 25);
+      spire.setAttribute("class", "spire");
+      frontGroup.appendChild(spire);
+    }
+
+    addWindows(frontGroup, b.x, y, b.width, b.height);
+  });
+}
+
+function addWindows(group, bx, by, bw, bh) {
+  const margin = 6, spacingX = 14, spacingY = 18, size = 6;
+
+  for (let wy = by + margin; wy < by + bh - margin; wy += spacingY) {
+    for (let wx = bx + margin; wx < bx + bw - margin; wx += spacingX) {
+      const win = document.createElementNS(CITY_NS, "rect");
+      win.setAttribute("x", wx);
+      win.setAttribute("y", wy);
+      win.setAttribute("width", size);
+      win.setAttribute("height", size);
+      win.setAttribute("class", Math.random() < 0.65 ? "window lit" : "window");
+      group.appendChild(win);
+    }
+  }
+}
+
+buildCity()
+
 
 function pauseTimer() {
   if (isRunning) {
