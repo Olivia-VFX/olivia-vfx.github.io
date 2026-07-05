@@ -192,7 +192,8 @@ function createStars(count = 80) {
 
     star.style.left = Math.random() * 100  + "vw";
     star.style.top = Math.random() * 100 + "vh";
-    star.style.opacity = Math.random();
+    star.dataset.brightness = Math.random();
+    star.style.opacity = 0;
 
     starsContainer.appendChild(star);
     stars.push(star);
@@ -202,12 +203,17 @@ function createStars(count = 80) {
 createStars();
 
 function updateStars() {
-  let isNight = appState === "break" || appState === "complete";
+  let isNight = (appState === "break");
 
   stars.forEach(star => {
-    star.style.opacity = isNight ? Math.random() : 0;
+
+    if (isNight) {
+      star.style.opacity = star.dataset.brightness;
+    } else {
+      star.style.opacity = 0;
+    }
   });
-}
+ }
 
 function createShootingStar() {
   if (appState !== "break") return;
