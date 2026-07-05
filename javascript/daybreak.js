@@ -7,7 +7,7 @@ let nightTransition = false;
 let isRunning = false; 
 let appState = "ready";
 let breakPhase = "night";  
-
+ 
 const message = document.getElementById("message");
 const startButton = document.getElementById("startButton");
 const pauseButton = document.getElementById("pauseButton");
