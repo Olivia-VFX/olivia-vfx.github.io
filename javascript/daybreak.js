@@ -6,7 +6,7 @@ let nightTransition = false;
   
 let isRunning = false;
 let appState = "ready";
-let breakPhase = "night";
+let breakPhase = "night";  
 
 const message = document.getElementById("message");
 const startButton = document.getElementById("startButton");
