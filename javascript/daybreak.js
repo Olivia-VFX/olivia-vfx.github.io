@@ -4,7 +4,7 @@ let breakLength = 300;
 let progress = (focusLength - time) / focusLength; 
 let nightTransition = false;
   
-let isRunning = false;
+let isRunning = false; 
 let appState = "ready";
 let breakPhase = "night";  
 
