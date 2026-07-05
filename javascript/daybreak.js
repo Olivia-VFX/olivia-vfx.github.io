@@ -253,6 +253,84 @@ setInterval(() => {
   }
 }, 2000);
 
+function createCloud() {
+  let cloud = document.createElement("div");
+  cloud.className = "cloud";
+  cloud.style.top = (10 + Math.random() * 30) + "vh";
+  cloud.style.left = "100%";
+  document.body.appendChild(cloud);
+
+  let duration = 20000 + Math.random() * 15000;
+
+  cloud.animate([
+    { transform: "translateX(0)" },
+    { transform: "translateX(-140vw)" }
+    ], {
+    duration: duration,
+    easing: "linear"
+  });
+
+  setTimeout(() => cloud.remove(), duration);
+}
+
+setInterval(() => {
+  if (Math.random() < 0.3) createCloud();
+}, 8000);
+
+function createBird() {
+  if (appState !== "focus") return;
+
+  let bird = document.createElement("div");
+  bird.className = "bird";
+  bird.textContent = "🕊️";
+  bird.style.top = (15 + Math.random() * 25) + "vh";
+  bird.style.left = "100%";
+  document.body.appendChild(bird);
+
+  let duration = 6000 + Math.random() * 3000;
+
+  bird.animate([
+    { transform: "translateX(0)" },
+    { transform: "translateX(-120vw)" }
+    ], {
+    duration: duration,
+    easing: "linear"
+  });
+
+  setTimeout(() => bird.remove(), duration);
+}
+
+setInterval(() => {
+  if (appState === "focus" && Math.random() < 0.2) createBird();
+}, 5000);
+
+function createPlane() {
+  if (appState !== "focus") return;
+
+  let plane = document.createElement("div");
+  plane.className = "plane";
+  plane.textContent = "✈️";
+  plane.style.top = (5 + Math.random() * 15) + "vh";
+  plane.style.left = "100%";
+  document.body.appendChild(plane);
+
+  let duration = 15000;
+
+  plane.animate([
+    { transform: "translateX(0)" },
+    { transform: "translateX(-130vw)" }
+    ], { 
+    duration: duration,
+    easing: "linear"
+  });
+
+  setTimeout(() => plane.remove(), duration);
+}
+
+setInterval(() => {
+  if (appState === "focus" && Math.random() < 0.05) createPlane()
+}, 10000);
+
 
 
 
