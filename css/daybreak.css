@@ -45,6 +45,7 @@
   background: white;
   border-radius: 50%;
   opacity: 0;
+  transition: opacity  1.5s ease;
 }
 
 .shooting-star {
