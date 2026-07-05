@@ -15,6 +15,10 @@ const resetButton = document.getElementById("resetButton");
 
 const sky = document.getElementById("sky");
 const sun = document.getElementById("sun");
+const moon = document.getElementById("moon");
+const starsContainer = document.getElementById("stars");
+
+let stars = [];
 
 const sunriseTop = [255, 209, 220];
 const sunriseBottom = [255, 230, 167];
@@ -156,11 +160,75 @@ function updateSun() {
   }
 
   sun.style.opacity = 1;
+  
   let p = getProgress();
+  
   let x = lerp(10, 85, p);
   let y = 80 - Math.sin(p * Math.PI) * 60;
 
   sun.style.transform = `translate(${x}vw, ${y}vh)`;
+}
+
+function updateMoon() {
+  if (appState !== "break") {
+    moon.style.opacity = 0;
+    return;
+  }
+
+  moon.style.opacity = 1;
+
+  let p = getProgress();
+
+  let x = lerp(80, 20, p);
+  let y = 25 - Math.sin(p * Math.PI) * 10;
+
+  moon.style.transform = `translate(${x}vw, ${y}vh)`;
+}
+
+function createStars(count = 80) {
+  for (let i = 0; i < count; i++) {
+    let star = document.createElement("div");
+    star.className = "star";
+
+    star.style.left = Math.random() * 100  + "vw";
+    star.style.top = Math.random() * 100 + "vh";
+    star.style.opacity = Math.random();
+
+    starsContainer.appendChild(star);
+    stars.push(star);
+  }
+}
+
+createStars();
+
+function updateStars() {
+  let isNight = appState === "break" || appState === "complete";
+
+  stars.forEach(star => {
+    star.style.opacity = isNight ? Math.random() : 0;
+  });
+}
+
+function createShootingStar() {
+  if (appState !== "break") return;
+
+  let star = document.createElement("div");
+  star.className = "shooting-star";
+
+  star.style.top = Math.random() * 40 + "%";
+  star.style.left = "100%";
+
+  document.body.appendChild(star);
+
+  star.animate([
+    {transform: "translateX(0)", opacity: 1},
+    {transform: "translateX(-120vw)", opacity: 0}
+    ], {
+    duration: 1200,
+    easing: "ease-out"
+  });
+
+  setTimeout(() => star.remove(), 1200);
 }
 
 function startSunsetToNightTransition() {
@@ -171,6 +239,11 @@ function startSunsetToNightTransition() {
   }, 1500);
 }
 
+setInterval(() => {
+  if (appState === "break" && Math.random() < 0.2) {
+    createShootingStar();
+  }
+}, 2000);
 
 
 
@@ -180,7 +253,10 @@ function refreshUI() {
   updateMessage();
   updateButtons();
   updateSky();
+  
   updateSun();
+  updateMoon();
+  updateStars();
 }
 
 function getProgress() {
