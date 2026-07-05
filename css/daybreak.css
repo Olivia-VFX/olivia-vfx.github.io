@@ -70,29 +70,32 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 200px;
+  height: 220px;
   z-index: 1;
   pointer-events: none;
 }
-
 #city svg {
   width: 100%;
   height: 100%;
   display: block;
 }
-
-.building {
-  fill: #1a1a2e;
+.building-back {
+  fill: #3d4a5c;
+  opacity: 0.5;
 }
-
+.building-front {
+  fill: #14161f;
+}
+.spire {
+  fill: #14161f;
+}
 .window {
   fill: #ffe28a;
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 1.2s ease;
 }
-
-.night-active .window {
-  opacity: 0.9;
+.night-active .window.lit {
+  opacity: 0.85;
 }
 
 .cloud {
