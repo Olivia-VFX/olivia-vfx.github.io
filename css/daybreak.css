@@ -56,6 +56,61 @@
   transform: rotate(45deg);
 }
 
+#city {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#city svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.building {
+  fill: #1a1a2e;
+}
+
+.window {
+  fill: #ffe28a;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.night-active .window {
+  opacity: 0.9;
+}
+
+.cloud {
+  position: absolute;
+  width: 100px;
+  height: 40px;
+  background: white;
+  border-radius: 50px;
+  opacity: 0.85;
+  filter: blur(1px);
+}
+
+.bird {
+  position: absolute;
+  font-size: 20px;
+  pointer-events: none;
+}
+
+.plane {
+  position: absolute;
+  font-size: 24px;
+  pointer-events: none;
+}
+
+
+
+
 .night-active {
   filter: brightness(0.35) contrast(1.3);
 }
