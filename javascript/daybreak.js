@@ -181,7 +181,7 @@ function updateMoon() {
 
   let p = getProgress();
 
-  let x = lerp(80, 20, p);
+  let x = lerp(15, 85, p);
   let y = 25 - Math.sin(p * Math.PI) * 10;
 
   moon.style.transform = `translate(${x}vw, ${y}vh)`;
