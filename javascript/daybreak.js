@@ -274,6 +274,7 @@ function getProgress() {
   if (appState === "break") {
     return (breakLength - time) / breakLength;
   }
+  return 0;
 }
 
 function lerp(a, b, t) {
