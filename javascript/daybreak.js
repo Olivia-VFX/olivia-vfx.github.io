@@ -159,6 +159,8 @@ function updateSun() {
     return;
   }
 
+  sun.style.fontSizw = "80px";
+  
   sun.style.opacity = 1;
   
   let p = getProgress();
