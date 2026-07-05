@@ -31,13 +31,13 @@ const sunsetBottom = [44, 83, 100];
 
 console.log("JS Loaded!");
 
-
-
-
 const CITY_NS = "http://www.w3.org/2000/svg";
 const groundY = 220;
 
-// wider, further-back buildings — creates depth
+refreshUI();
+
+
+
 const backBuildingsData = [
   { x: -10, width: 120, height: 90 },
   { x: 100, width: 100, height: 120 },
@@ -50,7 +50,6 @@ const backBuildingsData = [
   { x: 880, width: 130, height: 100 },
 ];
 
-// dense front row — spans the full width, varied heights
 const frontBuildingsData = [
   { x: 0,   width: 50, height: 140 },
   { x: 52,  width: 35, height: 90 },
@@ -128,6 +127,9 @@ function addWindows(group, bx, by, bw, bh) {
 }
 
 buildCity()
+
+
+
 
 
 function pauseTimer() {
