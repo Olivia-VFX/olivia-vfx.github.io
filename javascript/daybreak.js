@@ -1,7 +1,7 @@
 let time = 0;
 let focusLength = 1500;
 let breakLength = 300;
-let progress = (focusLength - time) / focusLength;
+let progress = (focusLength - time) / focusLength; 
 let nightTransition = false;
 
 let isRunning = false;
