@@ -118,6 +118,7 @@ function draw() {
   const relationshipColor = getRelationshipColor(dot);
 
   drawAngleArc(vectorA, vectorB, relationshipColor);
+  drawProjection(vectorA, vectorB);
 
   ctx.fillStyle = relationshipColor;
   ctx.font = "16px sans-serif";
@@ -157,5 +158,41 @@ function getRelationshipColor(dot) {
     return "#e53935";
   }
 }
+
+function projectAontoB(v1, v2) {
+  const dot = dotProduct(v1, v2);
+  const magB = magnitude(v2);
+
+  const scalarProjection = dot / magB;
+  const unitB = { x: v2.x / magB, y: v2.y / magB };
+
+  return {
+    x: unitB.x * scalarProjection,
+    y: unitB.y * scalarProjection
+  };
+}
+
+function drawProjection(v1, v2) {
+  const projection = projectAontoB(v1, v2);
+  const tip = toCanvasSpace(projection);
+
+  ctx.strokeStyle = "#9c27b0";
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(origin.x, origin.y);
+  ctx.lineTo(tip.x, tip.y);
+  ctx.stroke();
+
+  const aTip = toCanvasSpace(v1);
+  ctx.strokeStyle = "#9c27b0";
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 4]);
+  ctx.beingPath();
+  ctx.moveTo(aTip.x, aTip.y);
+  ctx.lineTo(tip.x, tip.y);
+  ctx.stroke();
+  ctx.setLineDash([]);
+}
+
 
   
