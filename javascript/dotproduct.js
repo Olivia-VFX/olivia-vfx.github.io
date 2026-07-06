@@ -25,7 +25,10 @@ function drawArrow(vector, color) {
   ctx.beginPath();
   ctx.moveTo(tip.x, tip.y);
   ctx.lineTo(origin.x, origin.y);
-  ctx.stroke();
+  ctx.stroke()
+
+  ctx.beginPath()
+  ctx.moveTo(tip.x, tip.y);
   ctx.lineTo(
     tip.x - headLength * Math.cos(angle - Math.PI / 6),
     tip.y - headLength * Math.sin(angle - Math.PI / 6)
