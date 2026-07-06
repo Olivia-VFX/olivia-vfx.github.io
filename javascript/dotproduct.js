@@ -26,6 +26,9 @@ function distance(p1, p2) {
 
 canvas.addEventListener("mousedown", (event) => {
   const mousePos = getMousePos(event);
+  console.log("mousePos:", mousePos);
+  console.log("vectorA:", vectorA);
+  console.log("distance to A:", distance(mousePos, vectorA));
 
   if (distance(mousePos, vectorA) < 20) {
     draggedVector = "A";
