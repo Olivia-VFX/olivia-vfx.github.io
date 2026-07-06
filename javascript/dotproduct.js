@@ -5,6 +5,53 @@ const origin = { x: canvas.width / 2, y: canvas.height / 2};
 let vectorA = { x: 150, y: 100 };
 let vectorB = { x: -80, y: 130};
 
+let draggedVector = null;
+
+function getMousePos(event) {
+  const rect = canvas.getBoundingClientRect();
+  const mouseX = event.clientX - rect.left;
+  const mouseY = event.clientY - rect.top;
+
+  return {
+    x: mouseX - origin.x,
+    y: -(mouseY - origin.y)
+  };
+}
+
+function distance(p1, p2) {
+  const dx = p1.x - p2.x;
+  const dy = p1.y - p2.y;
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+canvas.addEventListener("mousedown", (event) => {
+  const mousePos = getMousePos(event);
+
+  if (distance(mousePos, vectorA) < 20) {
+    draggedVector = "A";
+  } else if (distance(mousePos, vectorB) < 20) {
+    draggedVector = "B";
+  }
+});
+
+canvas.addEventListener("mousemove", (event) => {
+  if (draggedVector === null) return;
+
+  const mousePos = getMousePos(Event);
+
+  if (draggedVector === "A") {
+    vectorA = mousePos;
+  } else if (draggedVector === "B") {
+    vectorB = mousePos;
+  }
+
+  draw();
+});
+
+canvas.addEventListener("mouseup", () => {
+  draggedVector = null;
+});
+
 function toCanvasSpace(point) {
   return {
     x: origin.x + point.x,
