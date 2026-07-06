@@ -1,7 +1,7 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-const center = { x: canvas.width / 2, y: canvas.height / 2);
+const center = { x: canvas.width / 2, y: canvas.height / 2};
 const sphereRadius = 150;
 
 let lightDir = { x: -1, y: 1};
