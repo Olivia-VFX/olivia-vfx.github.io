@@ -11,3 +11,19 @@ body {
   background: #f4f4f8;
   border-radius: 12px;
 }
+
+.mode-link {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #f4f4f8;
+  font-family: sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 8px 14px;
+  border-radius: 8px;
+}
+.mode-link:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
