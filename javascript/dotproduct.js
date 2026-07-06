@@ -112,12 +112,14 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawArrow(vectorA, "#ff6b47");
   drawArrow(vectorB, "#4a7fff");
-  drawAngleArc(vectorA, vectorB);
 
   const dot = dotProduct(vectorA, vectorB);
   const angle = angleBetween(vectorA, vectorB);
+  const relationshipColor = getRelationshipColor(dot);
 
-  ctx.fillStyle = "#222";
+  drawAngleArc(vectorA, vectorB, relationshipColor);
+
+  ctx.fillStyle = relationshipColor;
   ctx.font = "16px sans-serif";
   ctx.fillText(`Dot Product: ${dot.toFixed(1)}`, 20, 30);
   ctx.fillText(`Angle: ${angle.toFixed(1)}°`, 20, 55);
@@ -137,13 +139,23 @@ function drawAngleArc(v1, v2) {
 
   const goCounterClockwise = diff < 0;
   
-  ctx.strokeStyle = "#888";
+  ctx.strokeStyle = color;
   ctx.lineWidth = 2;
   ctx.beginPath();
   ctx.arc(origin.x, origin.y, radius, angle1, angle2, goCounterClockwise);
   ctx.stroke();
 }
 
+function getRelationshipColor(dot) {
+  const threshold = 5;
 
+  if (Math.abs(dot) < threshold) {
+    return "#888888";
+  } else if (dot > 0) {
+    return "#4caf50";
+  } else {
+    return "#e53935";
+  }
+}
 
   
