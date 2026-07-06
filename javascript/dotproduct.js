@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 const origin = { x: canvas.width / 2, y: canvas.height / 2};
 
 let vectorA = { x: 150, y: 100 };
-let vectorB = { x: -80, y: 130};+
+let vectorB = { x: -80, y: 130};
 
 function toCanvasSpace(point) {
   return {
@@ -66,7 +66,7 @@ function draw() {
   const dot = dotProduct(vectorA, vectorB);
   const angle = angleBetween(vectorA, vectorB);
 
-  ctx.fillStlye = "#222";
+  ctx.fillStyle = "#222";
   ctx.font = "16px sans-serif";
   ctx.fillText(`Dot Product: ${dot.toFixed(1)}`, 20, 30);
   ctx.fillText(`Angle: ${angle.toFixed(1)}°`, 20, 55);
