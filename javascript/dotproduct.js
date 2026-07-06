@@ -51,7 +51,7 @@ function magnitude(v) {
 
 function angleBetween(v1, v2) {
   const dot = dotProduct(v1, v2);
-  const mag1 = magnitude(v1_;
+  const mag1 = magnitude(v1);
   const mag2 = magnitude(v2);
   const cosTheta = dot / (mag1 * mag2);
   const radians = Math.acos(cosTheta);
