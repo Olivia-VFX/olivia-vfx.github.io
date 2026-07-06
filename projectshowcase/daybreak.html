@@ -9,6 +9,20 @@
 
   <body>
 
+    <div id="sky">
+    </div>
+      <div id="city">
+        <svg id="citySky" viewBox="0 0 1000 220" preserveAspectRatio="none">
+          <g id="backBuildings"></g>
+          <g id="frontBuildings"></g>
+        </svg>
+      </div>
+    <div id="celestial">
+      <div id="sun"></div>
+      <div id="moon"></div>
+      <div id="stars"></div>
+    </div>
+
     <div class="header">
       <h2>Daybreak</h2>
 
@@ -23,21 +37,6 @@
       <button id="startButton" onclick="startFocusSession()">Start Focus</button>
       <button id="pauseButton" onclick="pauseTimer()">Pause</button>
       <button id="resetButton" onclick="resetTimer()">Reset</button>
-    </div>
-  </div>
-
-    <div id="sky">
-    </div>
-      <div id="city">
-        <svg id="citySky" viewBox="0 0 1000 220" preserveAspectRatio="none">
-          <g id="backBuildings"></g>
-          <g id="frontBuildings"></g>
-        </svg>
-      </div>
-    <div id="celestial">
-      <div id="sun"></div>
-      <div id="moon"></div>
-      <div id="stars"></div>
     </div>
     <script src="../../javascript/daybreak.js"></script>
   </body>
