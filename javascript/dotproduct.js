@@ -112,6 +112,7 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   drawArrow(vectorA, "#ff6b47");
   drawArrow(vectorB, "#4a7fff");
+  drawAngleArc(vectorA, vectorB);
 
   const dot = dotProduct(vectorA, vectorB);
   const angle = angleBetween(vectorA, vectorB);
@@ -123,3 +124,20 @@ function draw() {
 }
 
 draw();
+
+function drawAngleArc(v1, v2) {
+  const angle1 = Math.atan2(-v1.y, v1.x);
+  const angle2 = Math.atan2(-v2.y, v2.x);
+
+  const radius = 40;
+
+  ctx.strokeStyle = "#888";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(origin.x, origin.y, radius, angle1, angle2);
+  ctx.stroke();
+}
+
+
+
+  
