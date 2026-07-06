@@ -187,7 +187,7 @@ function drawProjection(v1, v2) {
   ctx.strokeStyle = "#9c27b0";
   ctx.lineWidth = 1;
   ctx.setLineDash([4, 4]);
-  ctx.beingPath();
+  ctx.beginPath();
   ctx.moveTo(aTip.x, aTip.y);
   ctx.lineTo(tip.x, tip.y);
   ctx.stroke();
