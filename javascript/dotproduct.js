@@ -37,7 +37,7 @@ canvas.addEventListener("mousedown", (event) => {
 canvas.addEventListener("mousemove", (event) => {
   if (draggedVector === null) return;
 
-  const mousePos = getMousePos(Event);
+  const mousePos = getMousePos(event);
 
   if (draggedVector === "A") {
     vectorA = mousePos;
