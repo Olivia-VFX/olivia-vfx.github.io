@@ -67,7 +67,7 @@ const frontBuildingsData = [
   { x: 711, width: 45, height: 100 },
   { x: 758, width: 70, height: 190 },
   { x: 830, width: 55, height: 150 },
-  { x: 887, width: 40, height: 115 },
+  { x: 887, width: 40, height: 115, spire: true},
   { x: 929, width: 65, height: 180 },
 ];
 
@@ -291,7 +291,7 @@ function createStars(count = 80) {
 
     star.style.left = Math.random() * 100  + "vw";
     star.style.top = Math.random() * 100 + "vh";
-    star.dataset.brightness = Math.random();
+    star.dataset.brightness = Math.random() * 0.6 + 0.4;;
     star.style.opacity = 0;
 
     starsContainer.appendChild(star);
