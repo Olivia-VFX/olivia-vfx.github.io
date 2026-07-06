@@ -127,7 +127,7 @@ function draw() {
 
 draw();
 
-function drawAngleArc(v1, v2) {
+function drawAngleArc(v1, v2, color) {
   const angle1 = Math.atan2(-v1.y, v1.x);
   const angle2 = Math.atan2(-v2.y, v2.x);
   const radius = 40;
