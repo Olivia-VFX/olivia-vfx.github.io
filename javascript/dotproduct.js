@@ -128,13 +128,19 @@ draw();
 function drawAngleArc(v1, v2) {
   const angle1 = Math.atan2(-v1.y, v1.x);
   const angle2 = Math.atan2(-v2.y, v2.x);
-
   const radius = 40;
 
+  let diff = angle2 - angle1;
+
+  while (diff > Math.PI) diff -= 2 * Math.PI;
+  while (diff < -Math.PI) diff += 2 * Math.PI;
+
+  const goCounterClockwise = diff < 0;
+  
   ctx.strokeStyle = "#888";
   ctx.lineWidth = 2;
   ctx.beginPath();
-  ctx.arc(origin.x, origin.y, radius, angle1, angle2);
+  ctx.arc(origin.x, origin.y, radius, angle1, angle2, goCounterClockwise);
   ctx.stroke();
 }
 
