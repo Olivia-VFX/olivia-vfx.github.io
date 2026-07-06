@@ -1,0 +1,96 @@
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+
+const center = { x: canvas.width / 2, y: canvas.height / 2);
+const sphereRadius = 150;
+
+let lightDir = { x: -1, y: 1};
+let lightHandle = { x: -100, y: 100};
+let isDraggingLight = false;
+
+function getMousePos(event) {
+  const rect = canvas.getBoundingClientRect();
+  const mouseX = event.clientX - rect.left;
+  const mouseY = event.clientY - rect.top;
+  return {
+    x: mouseX - center.x,
+    y: -(mouseY - center.y)
+  };
+}
+
+function distance (p1, p2) {
+  const dx = p1.x - p2.x;
+  const dy = p1.y - p2.y;
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+canvas.addEventListener("mousedown", (event) => {
+  const mousePos = getMousePos(event);
+  if (distance(mousePos, lightHandle) < 20) {
+    isDraggingLight = true;
+  }
+});
+
+canvas.addEventListener("mousemove", (event) => {
+  if (!isDraggingLight) return;
+  lightHandle = getMousePos(event);
+  draw();
+});
+
+canvas.addEventListener("mouseup", () => {
+  isDraggingLight = false;
+});
+
+function normalise(v) {
+  const mag = Math.sqrt(v.x * v.x + v.y * v.y);
+  return { x: v.x / mag, y: v.y / mag};
+}
+
+function drawSphere() {
+  const unitLight = normalise(lightHandle);
+
+for (let angleDeg = 0; angleDeg < 360; angleDeg++) {
+  const angleRad = angleDeg * (Math.PI / 180);
+  const normal = { x: Math.cos(angleRad), y: Math.sin(angleRad) };
+
+  let brightness = normal.x * unitLight.x + normal.y * unitLight.y;
+  brightness = Math.max(0, brightness);
+
+  const shade = Math.round(brightness * 255);
+  ctx.fillStyle = `rgb(${shade}, ${shade}, ${shade})`;
+
+  ctx.beginPath();
+  ctx.moveTo(center.x, center.y);
+  ctx.arc(center.x, center.y, sphereRadius, angleRad, angleRad + (Math.PI / 180));
+  ctx.closePath();
+  ctx.fill();
+}
+}
+
+function drawLightHandle() {
+  const displayDistance = 220;
+  const unitLight = normalise(lightHandle);
+  const handlePos = {
+    x: center.x + unitLight.x * displayDistance,
+    y: center.y - unitLight.y * displayDistance
+  };
+
+  ctx.fillStyle = "#ffd54f";
+  ctx.beginPath();
+  ctx.arc(handlePos.x, handlePos.y, 14, 0, Math.PI * 2);
+  ctx.fill();
+}
+
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  drawSphere();
+  drawLightHandle();
+}
+
+draw();
+
+
+
+
+
+
