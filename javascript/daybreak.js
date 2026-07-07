@@ -29,13 +29,13 @@ const middayBottom = [255, 255, 255];
 const sunsetTop = [255, 126, 95];
 const sunsetBottom = [44, 83, 100];
 
-console.log("JS Loaded!");
+console.log("JS loaded");
 
 const CITY_NS = "http://www.w3.org/2000/svg";
 const groundY = 220;
 
 refreshUI();
-
+console.log("UI refreshed");
 
 
 const backBuildingsData = [
@@ -203,6 +203,7 @@ function finishBreak() {
 }
 
 function returnToReady() {
+  console.log("returned to ready");
   appState = "ready";
   time = focusLength;
   isRunning = false;
