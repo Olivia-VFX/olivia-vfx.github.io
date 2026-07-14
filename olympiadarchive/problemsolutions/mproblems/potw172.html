@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Maths Problems</title>
+    <link rel="stylesheet" href="../../../../css/style.css">
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="logo">
+        The Atlas of Ideas
+      </div>
+      <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+
+    <li><a href="../articles/index.html">
+    Mathematics & Graphics
+    </a></li>
+
+    <li> <a href="../projectshowcase/index.html">
+    Projects
+    </a></li>
+
+    <li><a href="../olympiadarchive/index.html">
+    Olympiad Archive
+    </a></li>
+
+    <li><a href="../filmtech/index.html">
+    Film & Tech
+    </a></li>
+
+    <li><a href="../researchnotes/index.html">
+    Research Notes
+    </a></li>
+
+    <li><a href="../learningjournal/index.html">
+    Learning Journal
+    </a></li>
+
+  </ul>
+
+</nav>
+
+    <div class="page">
+      <div class="hero hero-section">
+        <h1>#002 Problem of the Week 172</h1>
+        <h2>A logic problem about tarts and the Queen of Hearts</h2>
+        <hr class="divider">
+      </div>
+
+      <section>
+        <h3>The Problem</h3>
+        <p>The Queen of Hearts had some tarts, but they were stolen. </br> Precisely one of the following statements about the Knaves of Clubs (C), Diamonds (D) and Spades (S) is true. Which one?</p>
+        <p>1. None of the the Knaves stole any tarts</p>
+        <p>2. The Knave of Clubs stole some tarts</p>
+        <p>3. Only one of the Knaves stole any tarts</p>
+        <p>4. At least one of the Knaves of Diamonds and the Knave of Spades stole no tarts</p>
+        <p>5. More than one of the three Knaves stole some tarts</p>
+      </section>
+
+      <section>
+        <h3>Statement 1</h3>
+        <p>Assuming its true:</p>
+        <ul>
+          <li>Statement 2 is false, as C didnt steal any tarts</li>
+          <li>Statement 3 is false, as no Knaves stole any tarts</li>
+          <li>Statement 4 is true, as both D and S stole no tarts, so atleast one of them stole no tarts</li>
+          <li>Statement 5 is false, as more that one Knaves stole no tarts</li>
+        </ul>
+        <p>As only 1 and 4 are true, it cannot be the only true statement</p>
+      </section>
+
+      <section>
+        <h3>Statement 2</h3>
+        <p>Assuming its true, there are three possibilities:</p>
+        <ul>
+          <li>Only C stole: 2, 3, and 4 are true</li>
+          <li>C and only one other stole: 2, 4, and 5 are true</li>
+          <li>All three stole: 2 and 5 are true</li>
+        </ul>
+        <p>As in every case more than one statement is true, so 2 cannot be the only true</p>
+      </section>
+
+      <section>
+        <h3>Statement 3</h3>
+        <p>Assuming its true, there are three cases:</p>
+        <ul>
+          <li>Only C stole: 2, 3 and 4 are true</li>
+          <li>Only D stole: 3 and 4 are true</li>
+          <li>Only S stole: 3 and 4 are true</li>
+        </ul>
+        <p>As in every case more than one statement is true, it cannot be the only true statement</p>
+      </section>
+
+      <section>
+        <h3>Statement 4</h3>
+        <p>Assuming its true, there are four cases:</p>
+        <ul>
+          <li>Only D didnt steal: 4, 2 and 5 are true</li>
+          <li>Only S didnt steal: 4, 2 and 5 are true</li>
+          <li>Both C, D and S didnt steal : 1 and 4 are true</li>
+          <li>Only C stole: 2, 3 and 4 are true </li>
+        </ul>
+        <p>As in every case more than one statement is true, it cannot be the only true statement</p>
+      </section>
+
+      <section>
+        <h3>Statement 5</h3>
+        <p>Assuming its true:</p>
+        <ul>
+          <li>If C + S stole: 5, 2 and 4 are true</li>
+          <li>If D + S stole: only 5 is true</li>
+          <li>If C + D stole: 2, 4 and 5 are true </li>
+          <li>If everyone stole: 2 and 5 are true</li>
+        </ul>
+        <p>THe statement is true as it works when D and S steal but C doesnt, as it has only one statement being true on its own</p>
+      </section>
+
+      <section>
+        <h3>Reflection</h3>
+        <p>I personally struggle with these questions as I always miss conditions (here I missed C + D stealing and it nearly messed up the whole thing) so i took my time and noted everythign possible. I liked how you had to notice that 5 was only true in a particular theft not every one making it more difficult to notice</p>
+      </section>
+
+      <a href="index.html" class="back-button">Back</a>
+    </div>
+  </body>
+</html>
