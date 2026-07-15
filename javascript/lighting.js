@@ -4,8 +4,26 @@ const ctx = canvas.getContext("2d");
 const center = { x: canvas.width / 2, y: canvas.height / 2};
 const sphereRadius = 150;
 
+const normal = {
+  x: Math.cos(angleRad),
+  y: Math.sin(angleRad),
+  z: 0
+};
+
+const handlePos = {
+  x: center.x + light3D.x * displayDistance,
+  y: center.y - light3D.y * displayDistnace
+};
+
+const dot = normal.x * light3D.x +
+  normal.y * light3D.y +
+  normal.z * light3D.x;
+
+const angle = Math.acos(dot);
+
+
 let lightDir = { x: -1, y: 1};
-let lightHandle = { x: -100, y: 100};
+let light3D = { x: 0, y: 1, z: 1};
 let isDraggingLight = false;
 
 function getMousePos(event) {
@@ -53,7 +71,11 @@ for (let angleDeg = 0; angleDeg < 360; angleDeg++) {
   const angleRad = angleDeg * (Math.PI / 180);
   const normal = { x: Math.cos(angleRad), y: Math.sin(angleRad) };
 
-  let brightness = normal.x * unitLight.x + normal.y * unitLight.y;
+  let brightness = 
+    normal.x * light3D.x +
+    normal.y * light3D.y +
+    normal.z * light3D.z;
+  
   brightness = Math.max(0, brightness);
 
   const shade = Math.round(brightness * 255);
@@ -96,8 +118,14 @@ function draw() {
 
 draw();
 
+function updateLightFromHandle() {
+  const azimuth = lightHandle.x * 0.01;
+  const elevation = lightHandle.y * 0.01;
 
-
+  light3D.x = Math.cos(elevation) * Math.cos(azimuth);
+  light3D.y = Math.sin(elevation);
+  light3D.z = Math.cos(elevation) * Math.sin(azimuth);
+}
 
 
 
