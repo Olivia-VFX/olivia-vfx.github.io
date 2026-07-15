@@ -50,11 +50,13 @@ function normalise(v) {
 // -------------------------------------------------------------
 
 function updateLightDirection() {
-  const azimuth = lightHandle.x * 0.01;
-  const elevation = lightHandle.y * 0.01;
+  const h = normalise(lightHandle);
+  
+  const azimuth = h.x * Math.PI;
+  const elevation = h.y * Math.PI * 0.5;
 
   light3D.x = Math.cos(elevation) * Math.cos(azimuth);
-  light3D.y = Math.sin(elevation);
+  light3D.y = -Math.sin(elevation);
   light3D.z = Math.cos(elevation) * Math.sin(azimuth);
 
   light3D = normalise(light3D);
@@ -101,7 +103,7 @@ function drawLightHandle() {
 
   const handlePos = {
     x: center.x + light3D.x * displayDistance,
-    y: center.y - light3D.y * displayDistance
+    y: center.y + light3D.y * displayDistance
   };
 
   ctx.fillStyle = "#ffd54f";
