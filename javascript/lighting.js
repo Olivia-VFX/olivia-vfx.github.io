@@ -68,11 +68,18 @@ for (let angleDeg = 0; angleDeg < 360; angleDeg++) {
 }
 
 function drawLightHandle() {
-  const displayDistance = 220;
   const unitLight = normalise(lightHandle);
+  const displayDistance = sphereRadius + 70;
+  
   const handlePos = {
-    x: center.x + unitLight.x * displayDistance,
-    y: center.y - unitLight.y * displayDistance
+    x: center.x + lightHandle.x,
+    y: center.y - lightHandle.y
+  };
+
+  ctx.fillStyle = "#ffd54f";
+  ctx.beginPath();
+  ctx.arc(handlePos.x, handlePos.y, 14, 0, Math.PI * 2);
+  ctx.fill();
   };
 
   ctx.fillStyle = "#ffd54f";
